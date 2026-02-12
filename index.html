@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Content-Language" content="zh-CN" />
+    <meta name="keywords" content="CC的宝藏仓库, 网站, 个人主页" />
+    <meta
+      name="description"
+      content="欢迎来到CC的宝藏仓库，这是我的个人网站，分享我的项目和想法。"
+    />
+    <title>CC的宝藏仓库</title>
+    <link rel="icon" href="images/cc圆形.png" type="image/x-icon" />
+    <link rel="stylesheet" href="css/index.css" />
+  </head>
+  <body>
+    <!-- 加载屏幕 -->
+    <div id="loading-screen">
+      <!-- 跳过按钮 - 位于加载屏幕左上角 -->
+      <button id="skip-animation" class="skip-button">
+        <svg viewBox="0 0 24 24">
+          <path d="M6.5 5.5L12 11l5.5-5.5L19 7l-7 7-7-7 1.5-1.5z" />
+        </svg>
+        <span>跳过动画</span>
+      </button>
+
+      <div class="typing-animation-container">
+        <div class="typing-text" id="typingText"></div>
+        <div class="loading-progress-container">
+          <div class="loading-progress-bar" id="progressBar"></div>
+        </div>
+        <div class="loading-hint" id="loadingHint">
+          请稍候，正在为您准备最佳体验...
+        </div>
+      </div>
+    </div>
+
+    <!-- 粘性页眉 -->
+    <header>
+      <div class="header-box">
+        <p>CC免费资源仓库</p>
+        <img src="images/cc圆形.png" alt="CC Logo" class="logo" />
+      </div>
+    </header>
+
+    <!-- 主内容区域 -->
+    <main>
+      <!-- 控制按钮 - 位于main内部，左上角 -->
+      <div class="control-buttons">
+        <button id="theme-toggle" class="control-btn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36c-0.98,1.37-2.58,2.26-4.4,2.26 c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"
+            ></path>
+          </svg>
+          <span>主题</span>
+        </button>
+        <button id="replay-animation" class="control-btn">
+          <svg viewBox="0 0 24 24">
+            <path
+              d="M12,5V1L7,6l5,5V7c3.31,0,6,2.69,6,6s-2.69,6-6,6s-6-2.69-6-6H4c0,4.42,3.58,8,8,8s8-3.58,8-8S16.42,5,12,5z"
+            ></path>
+          </svg>
+          <span>重播</span>
+        </button>
+      </div>
+
+      <!-- 视频背景 -->
+      <div class="video-container">
+        <div class="video-placeholder" id="video-placeholder">
+          正在加载背景视频...
+        </div>
+        <video id="bg-video" autoplay muted loop playsinline>
+          <!-- 可以替换为您自己的视频文件 -->
+          <source src="videos/风.webm" type="video/webm" />
+          <source src="videos/风.mp4" type="视频/mp4" />
+          您的浏览器不支持视频标签。
+        </video>
+        <div class="video-overlay"></div>
+      </div>
+
+      <!-- 主内容文字 -->
+      <div class="main-content" id="mainContent">
+        <img src="images/猫.png" alt="Cat Illustration" class="cat-img" />
+        <h1 class="site-title">欢迎来到CC的宝藏仓库</h1>
+        <h1 class="site-title">这是我的个人网站</h1>
+        <h1 class="site-title" style="margin-bottom: 20px">
+          分享我的项目和想法
+        </h1>
+        <a href="空.html" target="_blank" class="btn">点击进入</a>
+      </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer>
+      <div class="copyright">
+        <p>&copy; 2026 CC. 保留所有权利.</p>
+        <time datetime="2026-01-16">2026-01-16</time>
+      </div>
+    </footer>
+
+    <script src="js/index.js"></script>
+  </body>
+</html>

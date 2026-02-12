@@ -1,0 +1,1004 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>cc-宝藏资源导航</title>
+    <meta
+      name="description"
+      content="cc宝藏资源收集网站，站内所有收集的资源都能免费下载，保证资源真实可靠。"
+    />
+    <meta name="keywords" content="cc，宝藏网站,资源导航,免费资源" />
+    <style>
+      :root {
+        --primary-color: #3d4557;
+        --secondary-color: #f4f5f6;
+        --accent-color: #e74c3c;
+        --text-color: #333;
+        --light-text: #666;
+        --border-color: #f0f0f0;
+        --white: #ffffff;
+        --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        --hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        --transition: all 0.3s ease;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      body {
+        font-family:
+          -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
+          sans-serif;
+        background-color: var(--secondary-color);
+        color: var(--text-color);
+        line-height: 1.5;
+        font-size: 14px;
+      }
+
+      /* 顶部信息栏 */
+      .top-bar {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 6px 0;
+        font-size: 11px;
+      }
+
+      .top-bar-content {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .top-bar a {
+        color: white;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .top-bar a:hover {
+        text-decoration: underline;
+        opacity: 0.9;
+      }
+
+      /* 主头部 */
+      .main-header {
+        background-color: var(--white);
+        border-bottom: 1px solid var(--border-color);
+        padding: 12px 0;
+      }
+
+      .header-content {
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .logo-area {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .logo-img {
+        width: 48px;
+        height: 48px;
+        border-radius: 8px;
+        object-fit: cover;
+      }
+
+      .logo-text h1 {
+        font-size: 16px;
+        font-weight: bold;
+        color: var(--text-color);
+        margin-bottom: 4px;
+      }
+
+      .logo-text p {
+        font-size: 11px;
+        color: var(--light-text);
+      }
+
+      /* 搜索框 */
+      .search-container {
+        width: 100%;
+      }
+
+      .search-box {
+        display: flex;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .search-input {
+        flex: 1;
+        border: none;
+        padding: 0 12px;
+        font-size: 14px;
+        outline: none;
+        background-color: var(--white);
+        height: 40px;
+      }
+
+      .search-btn {
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        padding: 0 16px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: var(--transition);
+        min-width: 60px;
+      }
+
+      .search-btn:hover {
+        background-color: #2c3445;
+      }
+
+      /* 快捷图标区 */
+      .quick-icons {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+      }
+
+      .quick-icon {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: var(--transition);
+        width: 60px;
+      }
+
+      .quick-icon:hover {
+        transform: translateY(-2px);
+      }
+
+      .quick-icon img {
+        width: 28px;
+        height: 28px;
+        margin-bottom: 4px;
+        object-fit: contain;
+      }
+
+      .quick-icon span {
+        font-size: 10px;
+        text-align: center;
+      }
+
+      /* 导航栏 - 修复换行问题 */
+      .nav-header {
+        background-color: var(--white);
+        padding: 10px 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+      }
+
+      .nav-bar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+        gap: 20px;
+        overflow-x: auto;
+        padding: 0 12px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .nav-bar::-webkit-scrollbar {
+        display: none;
+      }
+
+      .nav-bar a {
+        white-space: nowrap;
+        text-decoration: none;
+        color: var(--accent-color);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 6px 10px;
+        border-radius: 4px;
+        transition: var(--transition);
+        flex-shrink: 0;
+      }
+
+      .nav-bar a:hover {
+        background-color: rgba(231, 76, 60, 0.1);
+      }
+
+      /* 主内容区 */
+      .main-content {
+        width: 100%;
+        margin: 0 auto;
+        padding: 12px;
+      }
+
+      /* 分类区域 */
+      .category-section {
+        margin-bottom: 24px;
+      }
+
+      .category-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+      .category-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: var(--text-color);
+      }
+
+      .category-subtitle {
+        font-size: 11px;
+        color: var(--light-text);
+      }
+
+      /* 网站网格 */
+      .site-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .site-card {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px;
+        background-color: var(--white);
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--text-color);
+        transition: var(--transition);
+        border: 1px solid transparent;
+      }
+
+      .site-card:hover {
+        box-shadow: var(--hover-shadow);
+        border-color: var(--border-color);
+        transform: translateY(-2px);
+      }
+
+      .site-icon {
+        width: 20px;
+        height: 20px;
+        flex-shrink: 0;
+        object-fit: contain;
+      }
+
+      .site-name {
+        font-size: 13px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        flex: 1;
+      }
+
+      /* 页脚 */
+      .footer {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 20px 0 15px;
+        margin-top: 30px;
+      }
+
+      .footer-content {
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 12px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 15px;
+      }
+
+      .footer-link {
+        color: #cbd5e0;
+        text-decoration: none;
+        font-size: 12px;
+        transition: var(--transition);
+      }
+
+      .footer-link:hover {
+        color: white;
+      }
+
+      .copyright {
+        text-align: center;
+        font-size: 11px;
+        color: #a0aec0;
+        padding-top: 15px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* 浮动按钮 */
+      .floating-btn {
+        position: fixed;
+        right: 12px;
+        bottom: 12px;
+        width: 44px;
+        height: 44px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 18px;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        transition: var(--transition);
+        opacity: 0;
+        transform: translateY(20px);
+        visibility: hidden;
+      }
+
+      .floating-btn.visible {
+        opacity: 1;
+        transform: translateY(0);
+        visibility: visible;
+      }
+
+      .floating-btn:hover {
+        background-color: #2c3445;
+        transform: scale(1.05);
+      }
+
+      /* 响应式设计 */
+      @media (max-width: 500px) {
+        .site-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .nav-bar {
+          gap: 12px;
+          justify-content: flex-start;
+        }
+      }
+
+      @media (min-width: 501px) and (max-width: 768px) {
+        .site-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .nav-bar {
+          gap: 25px;
+        }
+      }
+
+      @media (min-width: 769px) {
+        .top-bar-content,
+        .header-content,
+        .main-content,
+        .footer-content {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+
+        .header-content {
+          flex-direction: row;
+          align-items: center;
+          flex-wrap: wrap;
+          padding: 0 20px;
+        }
+
+        .logo-area {
+          flex: 1;
+        }
+
+        .search-container {
+          flex: 2;
+          max-width: 450px;
+          margin: 0 20px;
+        }
+
+        .quick-icons {
+          flex: 1;
+          justify-content: flex-end;
+          width: auto;
+        }
+
+        .quick-icon {
+          width: 70px;
+        }
+
+        .nav-bar {
+          gap: 40px;
+        }
+
+        .site-grid {
+          grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+          gap: 15px;
+        }
+      }
+
+      @media (min-width: 1025px) {
+        .header-content {
+          flex-wrap: nowrap;
+        }
+
+        .nav-bar {
+          gap: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 顶部信息栏 -->
+    <div class="top-bar">
+      <div class="top-bar-content">
+        <a href="#" target="_blank">cc资源仓库</a>
+        <span>桌面端资源（仓库持续扩建中）</span>
+        <span id="current-date"></span>
+      </div>
+    </div>
+
+    <!-- 主头部 -->
+    <header class="main-header">
+      <div class="header-content">
+        <div class="logo-area">
+          <img src="images/cc圆形.png" alt="cc资源仓库" class="logo-img" />
+          <div class="logo-text">
+            <h1>cc资源仓库</h1>
+            <p>免费宝藏资源收集网站</p>
+          </div>
+        </div>
+
+        <div class="search-container">
+          <div class="search-box">
+            <input
+              type="text"
+              class="search-input"
+              id="search-input"
+              placeholder="搜索您需要的资源..."
+            />
+            <button class="search-btn" id="search-btn">搜索</button>
+          </div>
+        </div>
+
+        <div class="quick-icons">
+          <a href="#" class="quick-icon" target="_blank" title="AI集合站">
+            <img
+              src="https://kycloud3.koyoo.cn/20241022a6b42202410221146348834.png"
+              alt="免费AI"
+            />
+            <span>免费AI</span>
+          </a>
+          <a href="#" class="quick-icon" target="_blank" title="游戏中心">
+            <img
+              src="https://file.icve.com.cn/file_doc/881/114/DC41CA806B711720157650B7094920C8.svg"
+              alt="pc游戏中心"
+            />
+            <span>pc游戏中心</span>
+          </a>
+          <a
+            href="https://qun.qq.com/universal-share/share?ac=1&authKey=UCvjLNudu8SJpKDEcq4o7rPi8YwxdF54A5eKEUAYgKdC5SlQtqRcQVRI629S391J&busi_data=eyJncm91cENvZGUiOiI5Mzg2NzU2NzkiLCJ0b2tlbiI6IlJGOFphZEZiVkx0TXFvOFJqUzFDdklJL0dRTjc3bDFRcUUxbUdjZXFYdEZZdEVIcXZLR2xFaUJleHFiL3ZicTIiLCJ1aW4iOiIyMTc0NjA3MTczIn0%3D&data=dqwJ1brzQE0Ywh-lgok3C8keEJ1Vlq2RsTL7SmmK37sWna13bsRSB0tYc9l6vL81jdEfcWr0kULdEIIHKOCyIw&svctype=4&tempid=h5_group_info"
+            class="quick-icon"
+            target="_blank"
+            title="最新Q群"
+          >
+            <img
+              src="https://qq-web.cdn-go.cn//im.qq.com_new/7bce6d6d/asset/favicon.ico"
+              alt="薅羊毛Q群"
+            />
+            <span>薅羊毛Q群</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- 导航栏 -->
+    <header class="nav-header">
+      <div class="nav-bar">
+        <a href="#" class="nav-link">资源(桌面端)</a>
+        <a href="#" class="nav-link">资源(移动端)</a>
+        <a href="./每日三问.html" class="nav-link">每日三问</a>
+        <a href="./15_小米商城_项目总结/index.html" class="nav-link"
+          >轮子(小米商城)</a
+        >
+        <a href="./西王.html" class="nav-link">财神爷</a>
+      </div>
+    </header>
+
+    <!-- 主内容区 -->
+    <main class="main-content">
+      <!-- 省钱助手分类 -->
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">省钱助手</h2>
+          <p class="category-subtitle">花小钱，省大钱。</p>
+        </div>
+        <div class="site-grid" id="money-saving"></div>
+      </section>
+
+      <!-- 影视娱乐分类 -->
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">影视音乐</h2>
+          <p class="category-subtitle">优质音频视频，带来最优质的观感体验。</p>
+        </div>
+        <div class="site-grid" id="video-entertainment"></div>
+      </section>
+
+      <!-- 资源网站分类 -->
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">资源网站</h2>
+          <p class="category-subtitle">海量资源，免费获取。</p>
+        </div>
+        <div class="site-grid" id="resource-sites"></div>
+      </section>
+
+      <!-- 实用工具分类 -->
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">实用工具</h2>
+          <p class="category-subtitle">提升效率，事半功倍。</p>
+        </div>
+        <div class="site-grid" id="useful-tools"></div>
+      </section>
+
+      <!-- 装机工具分类 -->
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">装机工具</h2>
+          <p class="category-subtitle">一键装机，省时省力。</p>
+        </div>
+        <div class="site-grid" id="install-tools"></div>
+      </section>
+
+      <!-- 开发工具分类 -->
+      <section class="category-section">
+        <div class="category-header">
+          <h2 class="category-title">开发工具</h2>
+          <p class="category-subtitle">程序员必备神器。</p>
+        </div>
+        <div class="site-grid" id="development-tools"></div>
+      </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="#" class="footer-link">关于网站</a>
+          <a href="#" class="footer-link">联系我们</a>
+          <a href="#" class="footer-link">隐私政策</a>
+          <a href="#" class="footer-link">免责声明</a>
+          <a href="#" class="footer-link">网站地图</a>
+        </div>
+        <div class="copyright">
+          <p>
+            &copy; 2026 cc免费资源仓库网站. 保留所有权利.<br />本站内容均来自互联网收集整理，如有侵权请联系我们删除。
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <div class="floating-btn" id="back-to-top">↑</div>
+
+    <script>
+      // 网站数据
+      const siteData = {
+        videoEntertainment: [
+          {
+            name: "映像星球",
+            icon: "https://nos.netease.com/ysf/b868dd076e08be242d97c62343426fed.png",
+            url: "#",
+          },
+          {
+            name: "追影猫",
+            icon: "https://img.meituan.net/portalweb/e7eeecf73cae30bdb3fab9f1058725df17954.png",
+            url: "#",
+          },
+          {
+            name: "网盘资源搜索",
+            icon: "https://nos.netease.com/ysf/f34aa1a80de54f5e70157b3210832c21.jpg",
+            url: "#",
+          },
+          {
+            name: "硬核影视",
+            icon: "https://img.meituan.net/portalweb/5ee4972c05c77938d80e85c43954b3365298.png",
+            url: "#",
+          },
+          {
+            name: "555电影",
+            icon: "https://img.meituan.net/portalweb/2e25a7d25f02b401712c3cfbecfd46004286.ico",
+            url: "#",
+          },
+          {
+            name: "蓝光秒播",
+            icon: "https://aaa.ttyy800.vip/img/7.png",
+            url: "#",
+          },
+          {
+            name: "看球直播",
+            icon: "https://img.meituan.net/portalweb/eda2f6978c36b4a6793d3bf3625108f927360.ico",
+            url: "#",
+          },
+
+          {
+            name: "奈飞工厂",
+            icon: "https://img.meituan.net/portalweb/0e32cc3eb762de9f19a47a749f41f4fb20417.png ",
+            url: "#",
+          },
+
+          {
+            name: "AGE动漫",
+            icon: "https://nos.netease.com/ysf/0dba537e502f9942cb0e4f4fe07d056c.ico",
+            url: "#",
+          },
+
+          {
+            name: "G站漫画",
+            icon: "https://img.meituan.net/portalweb/cd6000af4281a475e733d2c309a9dd589662.ico",
+            url: "#",
+          },
+        ],
+        moneySaving: [
+          {
+            name: "美团外卖红包",
+            icon: "https://pp.myapp.com/ma_icon/0/icon_10371658_1700641617/256",
+            url: "#",
+          },
+          {
+            name: "京东外卖红包",
+            icon: "https://pp.myapp.com/ma_icon/0/icon_7193_1748315009/256",
+            url: "#",
+          },
+          {
+            name: "饿了么红包",
+            icon: "https://nos.netease.com/ysf/7c82454bc7afccabf0d7372b7d318563.webp",
+            url: "#",
+          },
+          {
+            name: "电影票8折",
+            icon: "https://pp.myapp.com/ma_icon/0/icon_1271204_1699925617/256",
+            url: "#",
+          },
+          {
+            name: "肯德基5折",
+            icon: "https://pp.myapp.com/ma_icon/0/icon_10045746_1698991209/256",
+            url: "#",
+          },
+          {
+            name: "麦当劳5折",
+            icon: "https://nos.netease.com/ysf/8921cb44d0d58ab6f861b855da31c87b.webp",
+            url: "#",
+          },
+          {
+            name: "瑞幸咖啡5折",
+            icon: "https://m.lkcoffee.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "超值流量卡",
+            icon: "https://pp.myapp.com/ma_icon/0/icon_86073_1696904063/256",
+            url: "#",
+          },
+        ],
+
+        resourceSites: [
+          {
+            name: "Z-Library",
+            icon: "https://nos.netease.com/ysf/77e1033784aea38956cc9729aac8f3a3.png",
+            url: "#",
+          },
+          {
+            name: "找书神器",
+            icon: "https://mianfei22.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "Music Free",
+            icon: "https://pic.rmb.bdstatic.com/bjh/240314/material/b3627d8978aa72bcbf5c950b9fecdb09290.png",
+            url: "#",
+          },
+          {
+            name: "洛雪音乐助手",
+            icon: "https://img.meituan.net/portalweb/9a700c89f31b14bea4744c749a1dd67033017.png",
+            url: "#",
+          },
+          { name: "光厂", icon: "https://www.vjshi.com/favicon.ico", url: "#" },
+          {
+            name: "昵图网",
+            icon: "https://www.nipic.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "果核剥壳",
+            icon: "https://www.ghxi.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "小刀娱乐",
+            icon: "https://www.x6d.com/favicon.ico",
+            url: "#",
+          },
+        ],
+
+        usefulTools: [
+          {
+            name: "AI数字人",
+            icon: "https://www.6pian.cn/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "AI合成PPT",
+            icon: "https://www.cappt.cc/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "豆包AI助手",
+            icon: "https://lf1-cdn-tos.bytescm.com/obj/ttfe/ies/douyin_web/public/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "合同生成器",
+            icon: "https://www.hetongzhushou.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "AI写作",
+            icon: "https://www.aixiezuo.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "高德地图",
+            icon: "https://www.amap.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "MECHREVO工具",
+            icon: "https://www.mechrevo.com/favicon.ico",
+            url: "#",
+          },
+        ],
+
+        installTools: [
+          {
+            name: "MSDN我告诉你",
+            icon: "https://msdn.itellyou.cn/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "Next ITELLYOU",
+            icon: "https://next.itellyou.cn/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "Windows系统下载",
+            icon: "https://www.microsoft.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "驱动总裁",
+            icon: "https://www.sysceo.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "驱动精灵",
+            icon: "https://www.drivergenius.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "鲁大师",
+            icon: "https://www.ludashi.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "360驱动大师",
+            icon: "https://dm.360.cn/favicon.ico",
+            url: "#",
+          },
+        ],
+
+        developmentTools: [
+          {
+            name: "VSCode",
+            icon: "https://code.visualstudio.com/favicon.ico",
+            url: "#",
+          },
+          { name: "GitHub", icon: "https://github.com/favicon.ico", url: "#" },
+          { name: "Node.js", icon: "https://nodejs.org/favicon.ico", url: "#" },
+          { name: "npm", icon: "https://www.npmjs.com/favicon.ico", url: "#" },
+          {
+            name: "MDN Web Docs",
+            icon: "https://developer.mozilla.org/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "Stack Overflow",
+            icon: "https://stackoverflow.com/favicon.ico",
+            url: "#",
+          },
+          {
+            name: "Postman",
+            icon: "https://www.postman.com/favicon.ico",
+            url: "#",
+          },
+        ],
+      };
+
+      // 初始化函数
+      function init() {
+        // 设置当前日期
+        const now = new Date();
+        const dateStr = now.toLocaleDateString("zh-CN", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+          weekday: "long",
+        });
+        document.getElementById("current-date").textContent = dateStr;
+
+        // 初始化站点网格
+        initSiteGrid("video-entertainment", siteData.videoEntertainment);
+        initSiteGrid("money-saving", siteData.moneySaving);
+        initSiteGrid("resource-sites", siteData.resourceSites);
+        initSiteGrid("useful-tools", siteData.usefulTools);
+        initSiteGrid("install-tools", siteData.installTools);
+        initSiteGrid("development-tools", siteData.developmentTools);
+
+        // 绑定事件监听器
+        bindEvents();
+
+        // 添加移动端触摸事件支持
+        addTouchSupport();
+      }
+
+      // 初始化站点网格
+      function initSiteGrid(containerId, sites) {
+        const container = document.getElementById(containerId);
+        if (!container || !sites) return;
+
+        container.innerHTML = "";
+
+        sites.forEach((site) => {
+          const siteCard = document.createElement("a");
+          siteCard.className = "site-card";
+          siteCard.href = site.url;
+          siteCard.target = "_blank";
+          siteCard.rel = "external nofollow noopener";
+          siteCard.title = site.name;
+
+          const img = document.createElement("img");
+          img.className = "site-icon";
+          img.alt = site.name;
+          img.src = site.icon;
+
+          // 图片加载失败时使用占位符
+          img.onerror = function () {
+            this.onerror = null;
+            this.src =
+              "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHJ4PSI0IiBmaWxsPSIjRTJFOEU4Ii8+PC9zdmc+";
+          };
+
+          const nameSpan = document.createElement("span");
+          nameSpan.className = "site-name";
+          nameSpan.textContent = site.name;
+
+          siteCard.appendChild(img);
+          siteCard.appendChild(nameSpan);
+          container.appendChild(siteCard);
+        });
+      }
+
+      // 绑定事件
+      function bindEvents() {
+        // 搜索功能
+        const searchInput = document.getElementById("search-input");
+        const searchBtn = document.getElementById("search-btn");
+
+        searchBtn.addEventListener("click", performSearch);
+        searchInput.addEventListener("keypress", (e) => {
+          if (e.key === "Enter") {
+            performSearch();
+          }
+        });
+
+        // 返回顶部按钮
+        const backToTopBtn = document.getElementById("back-to-top");
+        backToTopBtn.addEventListener("click", () => {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        });
+
+        // 显示/隐藏返回顶部按钮
+        window.addEventListener("scroll", () => {
+          if (window.scrollY > 300) {
+            backToTopBtn.classList.add("visible");
+          } else {
+            backToTopBtn.classList.remove("visible");
+          }
+        });
+
+        // 为移动端添加触摸反馈
+        addMobileTouchFeedback();
+      }
+
+      // 执行搜索
+      function performSearch() {
+        const query = document.getElementById("search-input").value.trim();
+        if (!query) {
+          document.getElementById("search-input").focus();
+          return;
+        }
+
+        // 使用必应搜索
+        const encodedQuery = encodeURIComponent(query);
+        const searchUrl = "https://www.bing.com/search?q=" + encodedQuery;
+
+        // 在实际应用中，这里应该打开新窗口
+        // window.open(searchUrl, '_blank');
+
+        // 演示用：显示提示
+        alert(
+          `使用 必应 搜索: ${query}\n\n在实际网站中，这将跳转到:\n${searchUrl}`,
+        );
+
+        // 清空搜索框
+        document.getElementById("search-input").value = "";
+      }
+
+      // 添加移动端触摸支持
+      function addTouchSupport() {
+        // 防止移动端双击缩放
+        let lastTouchEnd = 0;
+        document.addEventListener("touchend", function (event) {
+          const now = Date.now();
+          if (now - lastTouchEnd <= 300) {
+            event.preventDefault();
+          }
+          lastTouchEnd = now;
+        });
+      }
+
+      // 添加移动端触摸反馈
+      function addMobileTouchFeedback() {
+        const siteCards = document.querySelectorAll(".site-card");
+        siteCards.forEach((card) => {
+          card.addEventListener("touchstart", function () {
+            this.style.opacity = "0.8";
+            this.style.transform = "scale(0.98)";
+          });
+
+          card.addEventListener("touchend", function () {
+            this.style.opacity = "1";
+            this.style.transform = "scale(1)";
+          });
+        });
+      }
+
+      // 页面加载完成后初始化
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
+  </body>
+</html>

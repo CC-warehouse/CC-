@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>每日三问</title>
+    <link rel="stylesheet" href="css/每日三问.css" />
+  </head>
+  <body>
+    <video class="video" autoplay muted loop>
+      <source src="videos/海滩.mkv" type="video/webm" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="container">
+      <h1>每日三问</h1>
+
+      <div class="quote-box">
+        <div id="quote1" class="quote show">你安于现状吗？</div>
+        <div id="quote2" class="quote">你羡慕吗？</div>
+        <div id="quote3" class="quote">你难到忘记了吗？</div>
+        <div id="quote4" class="quote">你告诉我你的答案：</div>
+      </div>
+
+      <div class="input-area" id="inputArea">
+        <textarea
+          id="userThoughts"
+          class="user-input"
+          rows="1"
+          placeholder="请输入你的答案"
+        ></textarea>
+
+        <div class="button-container">
+          <button id="saveBtn" class="save-btn">保存本地</button>
+          <button id="replayBtn" class="replay-btn">重新回答</button>
+        </div>
+
+        <div id="saveMessage" class="message">你的回答已保存！</div>
+      </div>
+    </div>
+
+    <script src="js/每日三问.js"></script>
+  </body>
+</html>
